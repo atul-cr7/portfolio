@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PORTFOLIO</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/home1.css' %}">
+</head>
+<body>
+<body onload="start1()">
+<div class="top-box" id="top_box">
+	<p id="text">Atul kumar singh</p>
+	<div class="small_box" id="small_box"><p id="text1">Home</p></div>
+	<div class="small_box" id="small_box1"><p id="text2">About</p></div>
+	<div class="small_box" id="small_box2"><p id="text3">Projects</p></div>
+	<div class="small_box" id="small_box3"><p id="text4">Contact </p></div>
+	<h1 id="third_box"></h1>
+	<p id="third_box1"></p>
+</div>
+<div class="second_box" id="second_box">
+	<p id="second_box_text">Hi,</p>
+	<p id="second_box_text1">I'm </p>
+	<p id="second_box_text2">Atul, </p>
+	<p id="second_box_text3">I'm Coder </p>
+	<p id="second_box_text4">html / css / javascript / jquery / django </p>
+	<button id="btn"><p id="btn_text">Contact</p></button>
+
+	{% if  name %}
+	<p id="message_text"> <b>Thanks</b> {{name}}!</p>
+	<p id="message_text2">we received your email and will respond shortly...</p>
+	{% endif %}
+
+
+
+
+</div>
+
+<div class="About_box" id="About_box"><br><br>
+	<img src="{% static 'image/atul4.jpeg' %}" height="430px" width="300px" alt="..." id="image">
+	<div class="About_box_content">
+		<div class="content_outer_box"><div class="content_inner_box"><p id="tx">"Hi, I'm Atul kumar singh"</p></div>
+			<p id="tx1">I'm an alumuni of the Chitkara university graduated in Btech(cse branch) .
+			Coading is something of my interest.
+			The technologies i worked in python ,django,Jquery,javascript,css,html,c,++.
+			I had done my internship in python.Talking about my hobbies is to play football,netsurfing.
+			</p>
+			<p id="tx2">Please feel free to reach out to me at <b>akumarsingh.cse16@chitkarauniversity.edu.in</b> to connect.</p>
+			</div>
+	</div>
+</div>
+<div class="project_box">
+	<div class="project_box_outer_box"><img src="{% static 'image/project3.png' %}" height="400px" width="350px" id="project_image1" alt="...">
+		<div class="project_box_inner_box"><p id="project_box_text">E-commerce</p>
+			<p id='project_box_text1'>This project is known as e-commerce site.Here you can visit and buy yours desire product.</p>
+			<div class="project_box_inner_inner_box"><p id="project_box_text2"> Used Technology : <b>HTML | CSS | JQUERY | JAVASCRIPT </b></p></div>
+		</div>
+		<a href="mailto:atulcr79872@gmail.com" target="_blank"><img src="{% static 'image/mail.png' %}" alt="..." height="36px" width="36px" id="mail"></a>
+		<a href="https://atul-cr7.github.io/e-commerce-s/" target="_blank"><img src="{% static 'image/github.png' %}" alt="..." height="36px" width="36px" id="github"></a>
+	</div>
+	<div class="project_box_outer_box" id="project_box_outer_box1"><img src="{% static 'image/potfolio1.png' %}" height="400px" width="350px" id="project_image1" alt="...">
+		<div class="project_box_inner_box"><p id="project_box_text">PORTFOLIO</p>
+			<p id='project_box_text1'>This project is portfolio .Here you can see  about me/my_projects.</p>
+			<div class="project_box_inner_inner_box"><p id="project_box_text2"> Used Technology : <b>HTML | CSS | JQUERY | JAVASCRIPT | DJANGO</b></p></div>
+		</div>
+		<a href="mailto:atulcr79872@gmail.com" target="_blank"><img src="{% static 'image/mail.png' %}" alt="..." height="36px" width="36px" id="mail"></a>
+		<a href="#"target="_blank"><img src="{% static 'image/github.png' %}" alt="..." height="36px" width="36px" id="github"></a>
+	</div>
+	<div class="project_box_outer_box" id="project_box_outer_box2"><img src="{% static 'image/CURD1.png' %}" height="400px" width="350px" id="project_image1" alt="...">
+		<div class="project_box_inner_box"><p id="project_box_text">CRUD</p>
+			<p id='project_box_text1'>This project is showing the CRUD operations.Here you can create/read/delete operations.</p>
+			<div class="project_box_inner_inner_box"><p id="project_box_text2"> Used Technology : <b> HTML | CSS | DJANGO </b></p></div>
+		</div>
+		<a href="mailto:atulcr79872@gmail.com" target="_blank"><img src="{% static 'image/mail.png' %}" alt="..." height="36px" width="36px" id="mail"></a>
+		<a href="#" target="_blank"><img src="{% static 'image/github.png' %}" alt="..." height="36px" width="36px" id="github"></a>
+	</div>
+</div>
+<div class="Contact_box">
+	<div class="form_box">
+	<p id="form_box_text">Contact Me</p>
+		<div class="form_box_content">
+		<form action="" method="POST" >
+			{% csrf_token %}
+			{% if form.non_field_errors%}
+			{% for error in form.non_field_errors %}
+			<p id="error_message">{{error}}</p>
+			{% endfor %}
+			{% endif%}
+			{% for field in form %}
+			{{field}}{{field.errors|striptags}}<br><br>
+			{% endfor%}
+			<input type="submit" value="send" id="send">
+			</form>
+		</div>
+	</div>
+	<img src="{% static 'image/uparrow.png' %}" height="50px" width="50px" alt="..." id="up">
+	<div class="footer"><p id="footer_box_text">Made with   <img src="{% static 'image/heart.png' %}" height="20px" width="20px" alt="..." id="heart">   and Django</p></div>
+</div>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript">
+	$(window).ready(function(){
+
+
+
+		//making the opacity of home less
+		$(window).scroll(fade);
+		function fade()
+		{
+			var top = $(this).scrollTop();
+			if(top > 100){
+
+				var diff = 1-(top/2000);
+
+				$(".second_box").css({"opacity" : diff})
+			}
+			else {
+				$(".second_box").css({"opacity" : "1"})
+			}
+		}
+
+
+
+
+
+		//by cliking on it scroll move to home
+		$("#small_box").click(home);
+		function home()
+		{
+			$("html,body").animate({scrollTop:0},600);
+			return false;
+
+		}
+
+
+
+		//by cliking on it scroll move to about
+		$("#small_box1").click(about);
+		function about()
+		{
+			$("html,body").animate({scrollTop:725},600);
+			return false;
+		}
+
+		//while clicking into project the scroll move to project
+        $('#small_box2').click(project);
+        function project()
+        {
+        	$("html,body").animate({scrollTop:1440},600);
+        	return false;
+        }
+
+		//while clicking on it move to contact form
+        $('#small_box3').click(contact);
+        function contact()
+        {
+          $("html,body").animate({scrollTop:2175},600)
+          return false;
+        }
+		//heart beat
+		function heart()
+        {
+        	$("#heart").fadeIn(1000);
+        	$("#heart").fadeOut(1000);
+
+        }
+        	setInterval(heart,1000);
+
+		//while clicking up it move top to site
+		$("#up").click(home);
+
+
+		//clicking contact
+        $("#btn").click(contact);
+
+		});
+
+
+
+		//refreshing the page it will move to top
+		$(window).on('beforeunload', function(){
+		$(window).scrollTop(0);
+		});
+
+
+
+
+		//set the time
+		function start1()
+		{
+
+			var obj=new Date();
+			var hours=obj.getHours();
+		    var mint=obj.getMinutes();
+		    var sec=obj.getSeconds();
+		    var ampm="AM";
+		    if(hours>=12)
+		    {
+		        if(hours!=12){
+
+		            	hours=hours-12;
+		            }
+
+
+		          ampm="PM";
+		           }
+		            var fulltime=hours+":"+mint+":"+sec;
+		            document.getElementById('third_box').innerHTML=fulltime;
+		            document.getElementById('third_box1').innerHTML=ampm;
+		           	timer=setTimeout("start1()",1000);
+			}
+</script>
+
+</body>
+</html>
